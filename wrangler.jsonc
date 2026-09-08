@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ahmed-abdelsalam-3d-site",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "not_found_handling": "single-page-application"
+  }
+}
