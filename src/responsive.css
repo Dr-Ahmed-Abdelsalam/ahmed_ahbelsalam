@@ -1,0 +1,320 @@
+/* Responsive refinements layered on top of styles.css */
+
+/* Progressive rendering helps long mobile pages stay responsive. */
+.manifesto,
+.field-grid,
+.work-section,
+.labs,
+.contact {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
+/* Keep touch targets comfortably usable. */
+.button,
+.nav-cta,
+.contact-links a {
+  min-height: 44px;
+}
+
+/* If blur is unavailable, keep contrast and readability. */
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  .topbar,
+  .scene-label {
+    background: rgba(6, 17, 28, .94);
+  }
+}
+
+@media (max-width: 1050px) {
+  .hero {
+    min-height: 920px;
+  }
+
+  .scene-wrap {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: 82px;
+  }
+
+  body {
+    min-width: 0;
+  }
+
+  .site-shell:before {
+    background-size: 52px 52px;
+    opacity: .15;
+  }
+
+  .ambient {
+    width: 20rem;
+    height: 20rem;
+    filter: blur(80px);
+    opacity: .1;
+  }
+
+  .topbar {
+    padding-left: max(18px, env(safe-area-inset-left));
+    padding-right: max(18px, env(safe-area-inset-right));
+    height: 72px;
+  }
+
+  .brand-copy strong {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+    padding-bottom: 64px;
+    gap: 12px;
+  }
+
+  .hero-gridline {
+    display: none;
+  }
+
+  .hero h1 {
+    line-height: .84;
+    letter-spacing: -.06em;
+    overflow-wrap: anywhere;
+  }
+
+  .role {
+    max-width: 34rem;
+    line-height: 1.5;
+  }
+
+  .credential,
+  .intro {
+    max-width: 34rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    gap: 10px;
+  }
+
+  .hero-actions .button {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .scene-wrap {
+    width: calc(100% + 28px);
+    margin-left: -14px;
+    height: clamp(320px, 88vw, 410px);
+    min-height: 0;
+    filter: drop-shadow(0 24px 40px rgba(0, 0, 0, .28));
+    touch-action: pan-y;
+  }
+
+  /* Avoid WebGL intercepting scroll gestures on touch devices. */
+  .scene-wrap canvas {
+    pointer-events: none;
+  }
+
+  /* Decorative CSS fallback remains visible behind/around the canvas. */
+  .scene-wrap:before {
+    content: "";
+    position: absolute;
+    width: 44%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    left: 28%;
+    top: 24%;
+    border: 1px solid rgba(212, 173, 114, .12);
+    box-shadow: 0 0 65px rgba(37, 92, 118, .12), inset 0 0 45px rgba(212, 173, 114, .04);
+    pointer-events: none;
+  }
+
+  .scene-label {
+    padding: 8px 10px;
+    border-radius: 9px;
+  }
+
+  .scene-label span {
+    font-size: 9px;
+  }
+
+  .scene-label small {
+    font-size: 7px;
+  }
+
+  .scene-label-a {
+    left: 1%;
+    top: 26%;
+  }
+
+  .scene-label-b {
+    right: 2%;
+    top: 20%;
+  }
+
+  .scene-label-c {
+    right: 1%;
+    bottom: 21%;
+  }
+
+  .manifesto,
+  .work-section,
+  .contact {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+
+  .manifesto h2,
+  .section-head h2,
+  .labs h2,
+  .contact h2 {
+    letter-spacing: -.04em;
+  }
+
+  .field-grid {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+    gap: 10px;
+  }
+
+  .field-card {
+    border: 1px solid rgba(234, 221, 199, .08);
+    border-radius: 14px;
+    min-height: 300px;
+  }
+
+  .work-card {
+    padding: 22px 0;
+  }
+
+  .work-meta h3 {
+    font-size: clamp(25px, 8.5vw, 36px);
+  }
+
+  .work-meta p {
+    line-height: 1.6;
+  }
+
+  .labs {
+    margin-left: max(20px, env(safe-area-inset-left));
+    margin-right: max(20px, env(safe-area-inset-right));
+    padding: 36px 22px;
+    min-height: 460px;
+  }
+
+  .labs:after {
+    width: 250px;
+    height: 250px;
+    right: -100px;
+    opacity: .6;
+  }
+
+  .contact-links {
+    display: grid;
+    width: min(100%, 360px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+}
+
+@media (max-width: 430px) {
+  .monogram {
+    font-size: 22px;
+  }
+
+  .brand-copy strong {
+    font-size: 12px;
+  }
+
+  .hero {
+    padding-top: 110px;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 18vw, 74px);
+  }
+
+  .eyebrow,
+  .section-kicker {
+    font-size: 9px;
+    letter-spacing: .26em;
+  }
+
+  .role {
+    font-size: 16px;
+  }
+
+  .credential {
+    line-height: 1.6;
+  }
+
+  .scene-wrap {
+    height: 330px;
+  }
+
+  .scene-label-b {
+    top: 12%;
+  }
+
+  .field-card {
+    padding: 28px 24px;
+  }
+
+  .work-visual {
+    height: 135px;
+  }
+
+  .labs {
+    margin-bottom: 80px;
+  }
+
+  .contact {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero {
+    padding-top: 100px;
+  }
+
+  .scene-wrap {
+    height: 300px;
+  }
+}
+
+@media (hover: none) {
+  .button-gold:hover,
+  .field-card:hover,
+  .work-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient {
+    display: none;
+  }
+
+  .scene-wrap {
+    filter: none;
+  }
+}
